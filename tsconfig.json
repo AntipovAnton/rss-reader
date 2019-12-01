@@ -4,13 +4,33 @@
     "sourceMap": true,
     "noImplicitAny": false,
     "module": "commonjs",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
     "target": "es6",
     "jsx": "react",
-    "allowJs": true,
+    "allowJs": false,
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "noUnusedLocals": true,
+    "removeComments": true,
+    "noUnusedParameters": true,
     "baseUrl": "./",
     "paths": {
       "components/*": [
         "src/components/*"
+      ],
+      "config/*": [
+        "src/config/*"
+      ],
+      "pages/*": [
+        "src/pages/*"
+      ],
+      "queries/*": [
+        "src/queries/*"
+      ],
+      "helpers/*": [
+        "src/helpers/*"
       ]
     }
   },

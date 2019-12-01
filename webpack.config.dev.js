@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
@@ -23,7 +23,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.tsx$/,
+                test: /\.(tsx|ts)$/,
                 exclude: /node_modules/,
                 use: [
                     {
@@ -63,7 +63,7 @@ module.exports = {
         contentBase: './dist',
         hot: true,
         port: 3000,
-        open: true,
-        historyApiFallback: true
+        open: false,
+        historyApiFallback: true,
     },
 };

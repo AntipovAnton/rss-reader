@@ -1,0 +1,21 @@
+.page-numbers-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.page-numbers {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+
+.page-numbers > li {
+  margin-right: 8px;
+  color: #cccccc;
+  user-select: none;
+  cursor: pointer;
+}
+
+.page-numbers .active-page {
+  color: #F99F25;
+}
