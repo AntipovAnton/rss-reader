@@ -35,7 +35,7 @@ const RssFeed = ({rss}) => {
     });
 
     return (
-        <div>
+        <div className="news-container">
             {renderNews}
             <div className="page-numbers-wrapper">
                 <ul className="page-numbers">
