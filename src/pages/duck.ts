@@ -25,13 +25,13 @@ const initialState: RssStore = {
 };
 
 export const rootReducer = reducerWithInitialState<RssStore>(initialState)
-    .case(actions.setFetchError, (state, fetchError) => ({ ...state, fetchError }))
+    .case(actions.setFetchError, (state, fetchError) => ({ ...state, fetchError, rss: [] }))
     .case(actions.setRss, (state, data) => ({ ...state, rss: data }))
-    .case(actions.setLoading, (state, isLoading) => ({ ...state, isLoading }));
+    .case(actions.setLoading, (state, isLoading) =>
+        ({ ...state, isLoading, fetchError: isLoading ? '' : state.fetchError }));
 
 function* fetch(action) {
     yield put(actions.setLoading(true));
-    yield put(actions.setFetchError(''));
     const url = action.payload;
     const data = yield call(fetchRss, url);
     if (!data.error){
