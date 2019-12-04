@@ -17,19 +17,16 @@ const RssFeed = ({rss}) => {
     });
 
     //Page numbers
-    const pageNumbers = [];
-    for (let i = 1; i <= Math.ceil(rss.length / newsPerPage); i++) {
-        pageNumbers.push(i);
-    }
-
-    const renderPageNumbers = pageNumbers.map(number => {
+    const pagesCount = Math.ceil(rss.length / newsPerPage);
+    const renderPageNumbers = [...Array(pagesCount)].map((_, index) => {
+        const pageNumber = ++index;
         return (
             <li
-                className={number === currentPage ? 'active-page': ''}
-                key={number}
-                onClick={() => setCurrentPage(number)}
+                className={pageNumber === currentPage ? 'active-page': ''}
+                key={pageNumber}
+                onClick={() => setCurrentPage(pageNumber)}
             >
-                {number}
+                {pageNumber}
             </li>
         );
     });
