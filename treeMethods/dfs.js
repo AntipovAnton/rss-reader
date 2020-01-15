@@ -1,3 +1,4 @@
+///////////// Non universal tree traversal dfs function /////////////
 const tree = {
     title: 'A',
     children: [
@@ -52,4 +53,4 @@ depthFirstIterative(tree, function (node) {
     resultDepthFirst.push(node.title)
 });
 
-console.log(resultDepthFirst);
+console.log(resultDepthFirst, ` - expected result: [ 'A', 'B', 'C', 'E', 'D', 'Y', 'Z' ]`);

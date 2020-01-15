@@ -1,3 +1,5 @@
+///////////// Tree traversal using recursion for small trees (Stack overflow possibility) /////////////
+
 const tree = {
     title: 'A',
     children: [

@@ -1,3 +1,5 @@
+///////////// Universal tree traversal bfs function /////////////
+
 const tree = {
     title: 'A',
     children: [
@@ -112,6 +114,6 @@ breadthFirstIterative(tree3, 'something', function (value) {
     resultTree3.push(value);
 });
 
-console.log(resultTree);
-console.log(resultTree2);
-console.log(resultTree3);
+console.log(resultTree, ` - expected result: [ 'A', 'B', 'D', 'Y', 'C', 'Z', 'E' ]`);
+console.log(resultTree2, ` - expected result: [ 1000, 2000, 3000, 4000, 5000, 6000, 7000, 5500 ]`);
+console.log(resultTree3, ` - expected result: [ 'data' ]`);
