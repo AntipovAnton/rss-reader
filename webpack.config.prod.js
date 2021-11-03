@@ -1,4 +1,5 @@
 const path = require('path');
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -14,7 +15,7 @@ module.exports = {
     devtool: 'source-map',
     output: {
         path: path.join(__dirname, '/dist'),
-        filename: 'bundle.[hash].js',
+        filename: 'bundle.[fullhash].js',
         publicPath: "/"
     },
 
@@ -22,9 +23,7 @@ module.exports = {
         minimize: true,
         minimizer: [
             new TerserPlugin({
-                cache: true,
                 parallel: true,
-                sourceMap: true, // set to true if you want JS source maps
                 terserOptions: {output: {comments: false}},
                 extractComments: false,
             }),
@@ -69,6 +68,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new NodePolyfillPlugin(),
         new CompressionPlugin(),
         new HtmlWebpackPlugin({
             template: './src/assets/index.html'

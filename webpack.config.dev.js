@@ -1,4 +1,5 @@
 const path = require('path');
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
 const webpack = require('webpack');
@@ -11,7 +12,7 @@ module.exports = {
 
     output: {
         path: path.join(__dirname, '/dist'),
-        filename: 'bundle.[hash].js',
+        filename: 'bundle.[fullhash].js',
         publicPath: "/"
     },
 
@@ -49,6 +50,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new NodePolyfillPlugin(),
         new HtmlWebpackPlugin({
             template: './src/assets/index.html'
         }),
@@ -60,7 +62,6 @@ module.exports = {
         }),
     ],
     devServer: {
-        contentBase: './dist',
         hot: true,
         port: 3000,
         open: false,
